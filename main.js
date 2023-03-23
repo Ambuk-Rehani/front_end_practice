@@ -1,3 +1,5 @@
+
+/*
 //console.log("Hello World");
 const name = "Ambuk";
 const age = 26;
@@ -81,3 +83,37 @@ Person.prototype.getLastName = function(){
 }
 
 console.log(person1.getLastName())
+*/
+
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const ul = document.querySelector('#users');
+
+const btn = document.querySelector('.btn')
+const msg = document.querySelector('.msg')
+
+// const clickF = (e) =>{
+    
+// }
+btn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (nameInput.value === '' ||  emailInput.value === ''){
+        msg.innerHTML = "Please enter all the values";
+        msg.classList.add('error');
+
+        setTimeout(() => msg.remove(), 3000);
+    }
+
+    else
+    {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${nameInput.value} and ${emailInput.value}`));
+        ul.appendChild(li);
+
+    }
+
+    nameInput.value = '';
+    emailInput.value = '';
+
+} )
