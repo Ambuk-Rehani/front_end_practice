@@ -1,9 +1,14 @@
 import Proptypes from 'prop-types'
+import {useLocation} from 'react-router-dom'
+
 
 const Button = ({color, text, onClick}) =>{
+
+    const location = useLocation();
+
     return(
         <div>
-            <button style ={{backgroundColor:color}} className = 'btn' onClick = {onClick}>{text}</button>
+            {location['pathname'] === '/' && <button style ={{backgroundColor:color}} className = 'btn' onClick = {onClick}>{text}</button>}
         </div>
     )
 }
